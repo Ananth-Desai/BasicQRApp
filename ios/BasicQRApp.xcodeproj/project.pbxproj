@@ -15,6 +15,20 @@
 		7699B88040F8A987B510C191 /* libPods-BasicQRApp-BasicQRAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BasicQRApp-BasicQRAppTests.a */; };
 		7AE3779B2E1917C47B8FBE42 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CAA62FCF2D230CC200819238 /* AVFoundationViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FCE2D230CC200819238 /* AVFoundationViewManager.swift */; };
+		CAA62FD12D230D2400819238 /* AVFoundationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FD02D230D2400819238 /* AVFoundationView.swift */; };
+		CAA62FD32D230DC500819238 /* AVFoundationViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FD22D230DC500819238 /* AVFoundationViewManager.m */; };
+		CAA62FD52D23AE2700819238 /* VisionKitViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FD42D23AE2700819238 /* VisionKitViewManager.m */; };
+		CAA62FD72D23AE3200819238 /* VisionKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FD62D23AE3200819238 /* VisionKitView.swift */; };
+		CAA62FD92D23AE3D00819238 /* VisionKitViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FD82D23AE3D00819238 /* VisionKitViewManager.swift */; };
+		CAA62FDB2D23BED800819238 /* MLKitViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FDA2D23BED800819238 /* MLKitViewManager.swift */; };
+		CAA62FDD2D23BEE500819238 /* MLKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FDC2D23BEE500819238 /* MLKitView.swift */; };
+		CAA62FDF2D23BEF700819238 /* MLKitViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FDE2D23BEF700819238 /* MLKitViewManager.m */; };
+		CAD3CE9D2D218FF700218E6B /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3CE9C2D218FF700218E6B /* InputFieldView.swift */; };
+		CAD3CE9F2D21920600218E6B /* InputFieldViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD3CE9E2D21920600218E6B /* InputFieldViewManager.m */; };
+		CAD3CEA12D21926400218E6B /* InputFieldViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3CEA02D21926400218E6B /* InputFieldViewManager.swift */; };
+		CADCC3A42D229D7900F1E38A /* TestModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADCC3A32D229D7900F1E38A /* TestModule.swift */; };
+		CADCC3A62D229DA100F1E38A /* TestModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CADCC3A52D229DA100F1E38A /* TestModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +59,21 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-BasicQRApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasicQRApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BasicQRApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-BasicQRApp-BasicQRAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicQRApp-BasicQRAppTests.release.xcconfig"; path = "Target Support Files/Pods-BasicQRApp-BasicQRAppTests/Pods-BasicQRApp-BasicQRAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		CAA62FCE2D230CC200819238 /* AVFoundationViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationViewManager.swift; sourceTree = "<group>"; };
+		CAA62FD02D230D2400819238 /* AVFoundationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationView.swift; sourceTree = "<group>"; };
+		CAA62FD22D230DC500819238 /* AVFoundationViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVFoundationViewManager.m; sourceTree = "<group>"; };
+		CAA62FD42D23AE2700819238 /* VisionKitViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionKitViewManager.m; sourceTree = "<group>"; };
+		CAA62FD62D23AE3200819238 /* VisionKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKitView.swift; sourceTree = "<group>"; };
+		CAA62FD82D23AE3D00819238 /* VisionKitViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKitViewManager.swift; sourceTree = "<group>"; };
+		CAA62FDA2D23BED800819238 /* MLKitViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitViewManager.swift; sourceTree = "<group>"; };
+		CAA62FDC2D23BEE500819238 /* MLKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitView.swift; sourceTree = "<group>"; };
+		CAA62FDE2D23BEF700819238 /* MLKitViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLKitViewManager.m; sourceTree = "<group>"; };
+		CAD3CE8A2D1D315800218E6B /* BasicQRApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BasicQRApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		CAD3CE9C2D218FF700218E6B /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
+		CAD3CE9E2D21920600218E6B /* InputFieldViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputFieldViewManager.m; sourceTree = "<group>"; };
+		CAD3CEA02D21926400218E6B /* InputFieldViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewManager.swift; sourceTree = "<group>"; };
+		CADCC3A32D229D7900F1E38A /* TestModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModule.swift; sourceTree = "<group>"; };
+		CADCC3A52D229DA100F1E38A /* TestModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestModule.m; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -88,6 +117,8 @@
 		13B07FAE1A68108700A75B9A /* BasicQRApp */ = {
 			isa = PBXGroup;
 			children = (
+				CAA62FC92D230C8600819238 /* BasicQRScanner */,
+				CAD3CE9A2D218F4400218E6B /* TestModules */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -95,6 +126,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				CAD3CE8A2D1D315800218E6B /* BasicQRApp-Bridging-Header.h */,
 			);
 			name = BasicQRApp;
 			sourceTree = "<group>";
@@ -149,6 +181,74 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-BasicQRApp-BasicQRAppTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CAA62FC92D230C8600819238 /* BasicQRScanner */ = {
+			isa = PBXGroup;
+			children = (
+				CAA62FCD2D230CA700819238 /* MLKit */,
+				CAA62FCC2D230CA100819238 /* VisionKit */,
+				CAA62FCA2D230C9400819238 /* AVFoundation */,
+			);
+			path = BasicQRScanner;
+			sourceTree = "<group>";
+		};
+		CAA62FCA2D230C9400819238 /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				CAA62FCE2D230CC200819238 /* AVFoundationViewManager.swift */,
+				CAA62FD02D230D2400819238 /* AVFoundationView.swift */,
+				CAA62FD22D230DC500819238 /* AVFoundationViewManager.m */,
+			);
+			path = AVFoundation;
+			sourceTree = "<group>";
+		};
+		CAA62FCC2D230CA100819238 /* VisionKit */ = {
+			isa = PBXGroup;
+			children = (
+				CAA62FD42D23AE2700819238 /* VisionKitViewManager.m */,
+				CAA62FD62D23AE3200819238 /* VisionKitView.swift */,
+				CAA62FD82D23AE3D00819238 /* VisionKitViewManager.swift */,
+			);
+			path = VisionKit;
+			sourceTree = "<group>";
+		};
+		CAA62FCD2D230CA700819238 /* MLKit */ = {
+			isa = PBXGroup;
+			children = (
+				CAA62FDA2D23BED800819238 /* MLKitViewManager.swift */,
+				CAA62FDC2D23BEE500819238 /* MLKitView.swift */,
+				CAA62FDE2D23BEF700819238 /* MLKitViewManager.m */,
+			);
+			path = MLKit;
+			sourceTree = "<group>";
+		};
+		CAD3CE9A2D218F4400218E6B /* TestModules */ = {
+			isa = PBXGroup;
+			children = (
+				CADCC3A12D229D6200F1E38A /* TestModule */,
+				CAD3CE9B2D218FE400218E6B /* InputField */,
+			);
+			path = TestModules;
+			sourceTree = "<group>";
+		};
+		CAD3CE9B2D218FE400218E6B /* InputField */ = {
+			isa = PBXGroup;
+			children = (
+				CAD3CE9C2D218FF700218E6B /* InputFieldView.swift */,
+				CAD3CE9E2D21920600218E6B /* InputFieldViewManager.m */,
+				CAD3CEA02D21926400218E6B /* InputFieldViewManager.swift */,
+			);
+			path = InputField;
+			sourceTree = "<group>";
+		};
+		CADCC3A12D229D6200F1E38A /* TestModule */ = {
+			isa = PBXGroup;
+			children = (
+				CADCC3A32D229D7900F1E38A /* TestModule.swift */,
+				CADCC3A52D229DA100F1E38A /* TestModule.m */,
+			);
+			path = TestModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +309,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1530;
 					};
 				};
 			};
@@ -396,8 +496,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD3CEA12D21926400218E6B /* InputFieldViewManager.swift in Sources */,
+				CAA62FD52D23AE2700819238 /* VisionKitViewManager.m in Sources */,
+				CADCC3A62D229DA100F1E38A /* TestModule.m in Sources */,
+				CAA62FD12D230D2400819238 /* AVFoundationView.swift in Sources */,
+				CAA62FDD2D23BEE500819238 /* MLKitView.swift in Sources */,
+				CAA62FDB2D23BED800819238 /* MLKitViewManager.swift in Sources */,
+				CAA62FDF2D23BEF700819238 /* MLKitViewManager.m in Sources */,
+				CAA62FD32D230DC500819238 /* AVFoundationViewManager.m in Sources */,
+				CAA62FD72D23AE3200819238 /* VisionKitView.swift in Sources */,
+				CAA62FCF2D230CC200819238 /* AVFoundationViewManager.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				CAD3CE9F2D21920600218E6B /* InputFieldViewManager.m in Sources */,
+				CADCC3A42D229D7900F1E38A /* TestModule.swift in Sources */,
+				CAA62FD92D23AE3D00819238 /* VisionKitViewManager.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				CAD3CE9D2D218FF700218E6B /* InputFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-BasicQRApp-BasicQRAppTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -443,6 +558,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-BasicQRApp-BasicQRAppTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = BasicQRAppTests/Info.plist;
@@ -470,6 +586,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TNAYN5AZMV;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BasicQRApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -485,6 +602,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BasicQRApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "BasicQRApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -498,6 +616,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TNAYN5AZMV;
 				INFOPLIST_FILE = BasicQRApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,6 +631,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BasicQRApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "BasicQRApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -586,10 +706,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -658,10 +775,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
