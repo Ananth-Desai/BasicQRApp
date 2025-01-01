@@ -24,6 +24,8 @@
 		CAA62FDB2D23BED800819238 /* MLKitViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FDA2D23BED800819238 /* MLKitViewManager.swift */; };
 		CAA62FDD2D23BEE500819238 /* MLKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FDC2D23BEE500819238 /* MLKitView.swift */; };
 		CAA62FDF2D23BEF700819238 /* MLKitViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FDE2D23BEF700819238 /* MLKitViewManager.m */; };
+		CAD11BBE2D24FE9E004D0930 /* CMSSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD11BBD2D24FE9E004D0930 /* CMSSampleBuffer+Extension.swift */; };
+		CAD11BC02D2501E6004D0930 /* VisionKitView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD11BBF2D2501E6004D0930 /* VisionKitView+Extension.swift */; };
 		CAD3CE9D2D218FF700218E6B /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3CE9C2D218FF700218E6B /* InputFieldView.swift */; };
 		CAD3CE9F2D21920600218E6B /* InputFieldViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD3CE9E2D21920600218E6B /* InputFieldViewManager.m */; };
 		CAD3CEA12D21926400218E6B /* InputFieldViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3CEA02D21926400218E6B /* InputFieldViewManager.swift */; };
@@ -68,6 +70,8 @@
 		CAA62FDA2D23BED800819238 /* MLKitViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitViewManager.swift; sourceTree = "<group>"; };
 		CAA62FDC2D23BEE500819238 /* MLKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitView.swift; sourceTree = "<group>"; };
 		CAA62FDE2D23BEF700819238 /* MLKitViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLKitViewManager.m; sourceTree = "<group>"; };
+		CAD11BBD2D24FE9E004D0930 /* CMSSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
+		CAD11BBF2D2501E6004D0930 /* VisionKitView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionKitView+Extension.swift"; sourceTree = "<group>"; };
 		CAD3CE8A2D1D315800218E6B /* BasicQRApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BasicQRApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		CAD3CE9C2D218FF700218E6B /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		CAD3CE9E2D21920600218E6B /* InputFieldViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputFieldViewManager.m; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				CAA62FD42D23AE2700819238 /* VisionKitViewManager.m */,
 				CAA62FD62D23AE3200819238 /* VisionKitView.swift */,
 				CAA62FD82D23AE3D00819238 /* VisionKitViewManager.swift */,
+				CAD11BBD2D24FE9E004D0930 /* CMSSampleBuffer+Extension.swift */,
+				CAD11BBF2D2501E6004D0930 /* VisionKitView+Extension.swift */,
 			);
 			path = VisionKit;
 			sourceTree = "<group>";
@@ -501,12 +507,14 @@
 				CADCC3A62D229DA100F1E38A /* TestModule.m in Sources */,
 				CAA62FD12D230D2400819238 /* AVFoundationView.swift in Sources */,
 				CAA62FDD2D23BEE500819238 /* MLKitView.swift in Sources */,
+				CAD11BC02D2501E6004D0930 /* VisionKitView+Extension.swift in Sources */,
 				CAA62FDB2D23BED800819238 /* MLKitViewManager.swift in Sources */,
 				CAA62FDF2D23BEF700819238 /* MLKitViewManager.m in Sources */,
 				CAA62FD32D230DC500819238 /* AVFoundationViewManager.m in Sources */,
 				CAA62FD72D23AE3200819238 /* VisionKitView.swift in Sources */,
 				CAA62FCF2D230CC200819238 /* AVFoundationViewManager.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				CAD11BBE2D24FE9E004D0930 /* CMSSampleBuffer+Extension.swift in Sources */,
 				CAD3CE9F2D21920600218E6B /* InputFieldViewManager.m in Sources */,
 				CADCC3A42D229D7900F1E38A /* TestModule.swift in Sources */,
 				CAA62FD92D23AE3D00819238 /* VisionKitViewManager.swift in Sources */,

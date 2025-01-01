@@ -6,27 +6,35 @@
 //
 
 import Foundation
+import AVFoundation
 import VisionKit
 
 @available(iOS 16.0, *)
 class VisionKitView: UIView {
-  private let scannerView = DataScannerViewController(
-    recognizedDataTypes: [.barcode()],
-    qualityLevel: .accurate,
-    recognizesMultipleItems: false,
-    isHighFrameRateTrackingEnabled: true,
-    isPinchToZoomEnabled: true,
-    isGuidanceEnabled: false,
-    isHighlightingEnabled: true)
+  static let queueLabel = "com.basicQRApp.visionKit"
+  private let session = AVCaptureSession()
+  private var imageAnalyser: ImageAnalyzer? = nil
+  private var imageInteraction: ImageAnalysisInteraction? = nil
+  private let configuration = ImageAnalyzer.Configuration(.machineReadableCode)
+  
+//  private let viewController = DataScannerViewController(
+//    recognizedDataTypes: [.barcode(symbologies: [.qr])],
+//    qualityLevel: .accurate,
+//    recognizesMultipleItems: false,
+//    isHighFrameRateTrackingEnabled: false,
+//    isGuidanceEnabled: true,
+//    isHighlightingEnabled: true)
   
   @objc var onSuccessfulScan: RCTDirectEventBlock?
     
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupCamera()
-    DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-      print("Starting to scan")
-      try? self?.scannerView.startScanning()
+//    viewController.delegate = self
+    if ImageAnalyzer.isSupported {
+      imageAnalyser = ImageAnalyzer()
+      imageInteraction = ImageAnalysisInteraction()
+      imageInteraction?.preferredInteractionTypes = .automatic
     }
   }
   
@@ -35,38 +43,76 @@ class VisionKitView: UIView {
   }
   
   func setupCamera() {
-    scannerView.delegate = self
-    scannerView.view.translatesAutoresizingMaskIntoConstraints = false
-    self.addSubview(scannerView.view)
-    scannerView.view.frame = UIScreen.main.bounds
+    guard let device = AVCaptureDevice.default(for: .video) else { return }
+    
+    do {
+      let input = try AVCaptureDeviceInput(device: device)
+      
+      let output = AVCaptureVideoDataOutput()
+
+      output.setSampleBufferDelegate(self, queue: DispatchQueue(label: VisionKitView.queueLabel))
+      output.alwaysDiscardsLateVideoFrames = true
+      output.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String) : NSNumber(value: kCVPixelFormatType_32BGRA)]
+      
+      session.beginConfiguration()
+      session.addInput(input)
+      session.addOutput(output)
+      session.commitConfiguration()
+      
+      let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+      previewLayer.videoGravity = .resizeAspectFill
+      previewLayer.frame = UIScreen.main.bounds
+        
+      self.layer.addSublayer(previewLayer)
+      DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+        self?.session.startRunning()
+      }
+    } catch {
+        print(error)
+    }
+//    let rootViewController = UIApplication.shared.delegate?.window??.rootViewController
+//    if (rootViewController) != nil {
+//      print("Root View Controller exists")
+//      rootViewController?.present(viewController, animated: true)
+//    }
+//    try? viewController.startScanning()
   }
 }
 
 @available(iOS 16.0, *)
-extension VisionKitView: DataScannerViewControllerDelegate {
-  func dataScanner(_: DataScannerViewController, didAdd addedItems: [RecognizedItem], allItems _: [RecognizedItem]) {
-      processAddedItems(items: addedItems)
+extension VisionKitView: AVCaptureVideoDataOutputSampleBufferDelegate {
+//  func metadataOutput(_ output: AVCaptureMetadataOutput,
+//                          didOutput metadataObjects: [AVMetadataObject],
+//                          from connection: AVCaptureConnection) {
+//    
+//    guard let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
+//              metadataObject.type == .qr,
+//        let stringValue = metadataObject.stringValue else { return }
+//    onSuccessfulScan?(["result" : stringValue])
+//  }
+  
+  func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    let image = imageFromSampleBuffer(sampleBuffer: sampleBuffer)
+    Task {
+      await analyzeImage(image: image)
+    }
   }
-
-  func dataScanner(_: DataScannerViewController, didTapOn item: RecognizedItem) {
-      processItem(item: item)
-  }
-
-  func processAddedItems(items: [RecognizedItem]) {
-      for item in items {
-          processItem(item: item)
-      }
-  }
-
-  func processItem(item: RecognizedItem) {
-      switch item {
-      case let .barcode(code):
-          print(code.payloadStringValue ?? "Nothing found")
-      case .text:
-          break
-      @unknown default:
-          print("Should not happen")
-      }
+  
+  func analyzeImage(image: UIImage) async {
+    let analysis = try? await imageAnalyser?.analyze(image, configuration: configuration)
+    print("Has machine readable code: ", analysis?.hasResults(for: .machineReadableCode))
+    print("Transcript: \(analysis?.transcript)")
   }
 }
 
+@available(iOS 16.0, *)
+extension VisionKitView: ImageAnalysisInteractionDelegate {
+//  func contentsRect(for interaction: ImageAnalysisInteraction) -> CGRect {
+//    UIScreen.main.bounds
+//  }
+}
+
+@available(iOS 16.0, *)
+extension VisionKitView: DataScannerViewControllerDelegate {
+  
+}

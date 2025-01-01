@@ -72,12 +72,10 @@ class MLKitView: UIView {
 
 extension MLKitView: AVCaptureVideoDataOutputSampleBufferDelegate {
   func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-    print("Captured Frame")
     let barcodeOptions = BarcodeScannerOptions(formats: .all)
     let barcodeScanner = BarcodeScanner.barcodeScanner(options: barcodeOptions)
     let visionImage = VisionImage(buffer: sampleBuffer)
     barcodeScanner.process(visionImage) { [weak self] features, error in
-      print(features)
         if let error = error {
             print(error.localizedDescription)
             return
