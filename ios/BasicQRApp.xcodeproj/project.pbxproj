@@ -26,6 +26,10 @@
 		CAA62FDF2D23BEF700819238 /* MLKitViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA62FDE2D23BEF700819238 /* MLKitViewManager.m */; };
 		CAD11BBE2D24FE9E004D0930 /* CMSSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD11BBD2D24FE9E004D0930 /* CMSSampleBuffer+Extension.swift */; };
 		CAD11BC02D2501E6004D0930 /* VisionKitView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD11BBF2D2501E6004D0930 /* VisionKitView+Extension.swift */; };
+		CAD11BC32D265812004D0930 /* VisionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD11BC22D265812004D0930 /* VisionViewManager.swift */; };
+		CAD11BC52D26581C004D0930 /* VisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD11BC42D26581C004D0930 /* VisionView.swift */; };
+		CAD11BC72D265828004D0930 /* VisionViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD11BC62D265828004D0930 /* VisionViewManager.m */; };
+		CAD11BC92D2659BA004D0930 /* VisionView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD11BC82D2659BA004D0930 /* VisionView+Extention.swift */; };
 		CAD3CE9D2D218FF700218E6B /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3CE9C2D218FF700218E6B /* InputFieldView.swift */; };
 		CAD3CE9F2D21920600218E6B /* InputFieldViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD3CE9E2D21920600218E6B /* InputFieldViewManager.m */; };
 		CAD3CEA12D21926400218E6B /* InputFieldViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3CEA02D21926400218E6B /* InputFieldViewManager.swift */; };
@@ -72,6 +76,10 @@
 		CAA62FDE2D23BEF700819238 /* MLKitViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLKitViewManager.m; sourceTree = "<group>"; };
 		CAD11BBD2D24FE9E004D0930 /* CMSSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
 		CAD11BBF2D2501E6004D0930 /* VisionKitView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionKitView+Extension.swift"; sourceTree = "<group>"; };
+		CAD11BC22D265812004D0930 /* VisionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewManager.swift; sourceTree = "<group>"; };
+		CAD11BC42D26581C004D0930 /* VisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionView.swift; sourceTree = "<group>"; };
+		CAD11BC62D265828004D0930 /* VisionViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionViewManager.m; sourceTree = "<group>"; };
+		CAD11BC82D2659BA004D0930 /* VisionView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionView+Extention.swift"; sourceTree = "<group>"; };
 		CAD3CE8A2D1D315800218E6B /* BasicQRApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BasicQRApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		CAD3CE9C2D218FF700218E6B /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		CAD3CE9E2D21920600218E6B /* InputFieldViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputFieldViewManager.m; sourceTree = "<group>"; };
@@ -190,6 +198,7 @@
 		CAA62FC92D230C8600819238 /* BasicQRScanner */ = {
 			isa = PBXGroup;
 			children = (
+				CAD11BC12D265800004D0930 /* Vision */,
 				CAA62FCD2D230CA700819238 /* MLKit */,
 				CAA62FCC2D230CA100819238 /* VisionKit */,
 				CAA62FCA2D230C9400819238 /* AVFoundation */,
@@ -227,6 +236,17 @@
 				CAA62FDE2D23BEF700819238 /* MLKitViewManager.m */,
 			);
 			path = MLKit;
+			sourceTree = "<group>";
+		};
+		CAD11BC12D265800004D0930 /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				CAD11BC22D265812004D0930 /* VisionViewManager.swift */,
+				CAD11BC42D26581C004D0930 /* VisionView.swift */,
+				CAD11BC62D265828004D0930 /* VisionViewManager.m */,
+				CAD11BC82D2659BA004D0930 /* VisionView+Extention.swift */,
+			);
+			path = Vision;
 			sourceTree = "<group>";
 		};
 		CAD3CE9A2D218F4400218E6B /* TestModules */ = {
@@ -502,23 +522,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD11BC72D265828004D0930 /* VisionViewManager.m in Sources */,
 				CAD3CEA12D21926400218E6B /* InputFieldViewManager.swift in Sources */,
 				CAA62FD52D23AE2700819238 /* VisionKitViewManager.m in Sources */,
 				CADCC3A62D229DA100F1E38A /* TestModule.m in Sources */,
 				CAA62FD12D230D2400819238 /* AVFoundationView.swift in Sources */,
 				CAA62FDD2D23BEE500819238 /* MLKitView.swift in Sources */,
 				CAD11BC02D2501E6004D0930 /* VisionKitView+Extension.swift in Sources */,
+				CAD11BC92D2659BA004D0930 /* VisionView+Extention.swift in Sources */,
 				CAA62FDB2D23BED800819238 /* MLKitViewManager.swift in Sources */,
 				CAA62FDF2D23BEF700819238 /* MLKitViewManager.m in Sources */,
 				CAA62FD32D230DC500819238 /* AVFoundationViewManager.m in Sources */,
 				CAA62FD72D23AE3200819238 /* VisionKitView.swift in Sources */,
 				CAA62FCF2D230CC200819238 /* AVFoundationViewManager.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				CAD11BC32D265812004D0930 /* VisionViewManager.swift in Sources */,
 				CAD11BBE2D24FE9E004D0930 /* CMSSampleBuffer+Extension.swift in Sources */,
 				CAD3CE9F2D21920600218E6B /* InputFieldViewManager.m in Sources */,
 				CADCC3A42D229D7900F1E38A /* TestModule.swift in Sources */,
 				CAA62FD92D23AE3D00819238 /* VisionKitViewManager.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				CAD11BC52D26581C004D0930 /* VisionView.swift in Sources */,
 				CAD3CE9D2D218FF700218E6B /* InputFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,6 +25,10 @@
                     {
                         id: 'VisionKit',
                         name: 'Vision Kit'
+                    },
+                    {
+                        id: 'Vision',
+                        name: 'Vision'
                     }
                 ]}
                 renderItem={(item) => 

@@ -18,6 +18,8 @@ import Home from './pages/Home';
 import { ScreenStack } from './node_modules/react-native-screens/lib/typescript/index';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import TestingView from './TestingView';
+import VisionScreen from './pages/Vision/VisionScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +46,11 @@ const RootStack = () => {
           component={VisionKitScreen}
           options={{title: "Vision Kit"}}
         />
+        <Stack.Screen 
+          name="Vision"
+          component={VisionScreen}
+          options={{title: "Vision"}}
+        />
     </Stack.Navigator>
   )
 }
@@ -56,6 +63,9 @@ function App(): React.JSX.Element {
     <NavigationContainer>
       <RootStack />
     </NavigationContainer>
+    // <SafeAreaView>
+    //   <TestingView />
+    // </SafeAreaView>
   );
 }
 

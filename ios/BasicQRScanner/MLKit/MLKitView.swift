@@ -86,6 +86,9 @@ extension MLKitView: AVCaptureVideoDataOutputSampleBufferDelegate {
         }
         
         for barcode in features {
+          DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.session.stopRunning()
+          }
           self?.onSuccessfulScan?(["result": barcode.rawValue ?? ""])
         }
     }

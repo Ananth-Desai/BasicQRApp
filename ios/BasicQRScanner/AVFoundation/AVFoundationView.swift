@@ -59,6 +59,9 @@ extension AVFoundationView: AVCaptureMetadataOutputObjectsDelegate {
     guard let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
               metadataObject.type == .qr,
         let stringValue = metadataObject.stringValue else { return }
+    DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+      self?.session.stopRunning()
+    }
     onSuccessfulScan?(["result" : stringValue])
   }
 }

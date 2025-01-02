@@ -17,20 +17,20 @@ class VisionKitView: UIView {
   private var imageInteraction: ImageAnalysisInteraction? = nil
   private let configuration = ImageAnalyzer.Configuration(.machineReadableCode)
   
-//  private let viewController = DataScannerViewController(
-//    recognizedDataTypes: [.barcode(symbologies: [.qr])],
-//    qualityLevel: .accurate,
-//    recognizesMultipleItems: false,
-//    isHighFrameRateTrackingEnabled: false,
-//    isGuidanceEnabled: true,
-//    isHighlightingEnabled: true)
+  private let viewController = DataScannerViewController(
+    recognizedDataTypes: [.barcode(symbologies: [.qr])],
+    qualityLevel: .accurate,
+    recognizesMultipleItems: false,
+    isHighFrameRateTrackingEnabled: false,
+    isGuidanceEnabled: true,
+    isHighlightingEnabled: true)
   
   @objc var onSuccessfulScan: RCTDirectEventBlock?
     
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupCamera()
-//    viewController.delegate = self
+    viewController.delegate = self
     if ImageAnalyzer.isSupported {
       imageAnalyser = ImageAnalyzer()
       imageInteraction = ImageAnalysisInteraction()
@@ -43,38 +43,46 @@ class VisionKitView: UIView {
   }
   
   func setupCamera() {
-    guard let device = AVCaptureDevice.default(for: .video) else { return }
-    
-    do {
-      let input = try AVCaptureDeviceInput(device: device)
-      
-      let output = AVCaptureVideoDataOutput()
-
-      output.setSampleBufferDelegate(self, queue: DispatchQueue(label: VisionKitView.queueLabel))
-      output.alwaysDiscardsLateVideoFrames = true
-      output.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String) : NSNumber(value: kCVPixelFormatType_32BGRA)]
-      
-      session.beginConfiguration()
-      session.addInput(input)
-      session.addOutput(output)
-      session.commitConfiguration()
-      
-      let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-      previewLayer.videoGravity = .resizeAspectFill
-      previewLayer.frame = UIScreen.main.bounds
-        
-      self.layer.addSublayer(previewLayer)
-      DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-        self?.session.startRunning()
-      }
-    } catch {
-        print(error)
-    }
-//    let rootViewController = UIApplication.shared.delegate?.window??.rootViewController
-//    if (rootViewController) != nil {
-//      print("Root View Controller exists")
-//      rootViewController?.present(viewController, animated: true)
+//    guard let device = AVCaptureDevice.default(for: .video) else { return }
+//    
+//    do {
+//      let input = try AVCaptureDeviceInput(device: device)
+//      
+//      let output = AVCaptureVideoDataOutput()
+//
+//      output.setSampleBufferDelegate(self, queue: DispatchQueue(label: VisionKitView.queueLabel))
+//      output.alwaysDiscardsLateVideoFrames = true
+//      output.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String) : NSNumber(value: kCVPixelFormatType_32BGRA)]
+//      
+//      session.beginConfiguration()
+//      session.addInput(input)
+//      session.addOutput(output)
+//      session.commitConfiguration()
+//      
+//      let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+//      previewLayer.videoGravity = .resizeAspectFill
+//      previewLayer.frame = UIScreen.main.bounds
+//        
+//      self.layer.addSublayer(previewLayer)
+//      DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+//        self?.session.startRunning()
+//      }
+//    } catch {
+//        print(error)
 //    }
+    
+    let rootViewController = UIApplication.shared.delegate?.window??.rootViewController
+    if (rootViewController) != nil {
+      print("Root View Controller exists")
+      rootViewController?.present(viewController, animated: true)
+    }
+    try? viewController.startScanning()
+//    viewController.view.translatesAutoresizingMaskIntoConstraints = false
+//    self.reactViewController().addChild(viewController)
+//    self.addSubview(viewController.view)
+//    viewController.view.frame = UIScreen.main.bounds
+//    viewController.didMove(toParent: self.reactViewController())
+//    
 //    try? viewController.startScanning()
   }
 }
@@ -114,5 +122,38 @@ extension VisionKitView: ImageAnalysisInteractionDelegate {
 
 @available(iOS 16.0, *)
 extension VisionKitView: DataScannerViewControllerDelegate {
-  
+  func dataScanner(_: DataScannerViewController, didAdd addedItems: [RecognizedItem], allItems _: [RecognizedItem]) {
+      processAddedItems(items: addedItems)
+  }
+
+  func dataScanner(_: DataScannerViewController, didRemove _: [RecognizedItem], allItems _: [RecognizedItem]) {
+//        processRemovedItems(items: removedItems)
+  }
+
+  func dataScanner(_: DataScannerViewController, didUpdate _: [RecognizedItem], allItems _: [RecognizedItem]) {
+//        processUpdatedItems(items: updatedItems)
+  }
+
+  func dataScanner(_: DataScannerViewController, didTapOn item: RecognizedItem) {
+      processItem(item: item)
+  }
+
+  func processAddedItems(items: [RecognizedItem]) {
+      for item in items {
+          processItem(item: item)
+      }
+  }
+
+  func processItem(item: RecognizedItem) {
+      switch item {
+      case let .barcode(code):
+          print(code.payloadStringValue ?? "")
+        viewController.dismiss(animated: true)
+        onSuccessfulScan?(["result" : code.payloadStringValue ?? ""])
+      case .text:
+          break
+      @unknown default:
+          print("Should not happen")
+      }
+  }
 }
